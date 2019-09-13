@@ -22,6 +22,7 @@ body{
     width: 240px;
     padding: 20px;
     box-shadow: inset 0px 0px 20px -5px rgba(0, 0, 0, 0.397);
+    overflow-y: auto;
 }
 nav{
     margin-top: 50px;
