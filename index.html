@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Javascript Reference</title>
+    <link rel="stylesheet" href="./assets/css/prism.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+
+<aside class="quick-find">
+    <header><h1>Javascript Reference</h1></header>
+    <nav>
+        <a href="#variables">Variables</a>
+        <a href="#arrays">Arrays</a>
+        <a href="#objects">Objects</a>
+        <a href="#functions">Functions</a>
+        <a href="#if-else">If/Else</a>
+        <a href="#loops">Loops</a>
+        <a href="#events">Events</a>
+        <a href="#scope">Scope</a>
+        <a href="#dom-manipulation">DOM Manipulation</a>
+    </nav>
+</aside>
+
+<main>
+    <!-- VARIABLES -->
+    <article id="variables">
+        <h2>Variables</h2>
+        <p>
+            Variables hold data to be referenced later. They can hold all kinds of different data types.
+        </p>
+        
+        <pre><code class="language-js line-numbers">
+            // Number
+            var x = 420;
+            var y = 6.9;
+            var z = -80085;
+            // String
+            var person = "Jimbo";
+            var phrase = "Everyone's a critic";
+            // Boolean
+            var iAmCool = true;
+            var tooCoolForSchool = false;
+            // Array
+            var people = ["Jimbo", "Sally", "Randy", "Carl"];
+            var numbers = [2, 8, 4, 0, 0, 1];
+            // Object
+            var profile = {name: "John", age: 22, skills: ["juggling", "cooking", "archery"]};
+
+            // reference a variable
+            console.log("My name is " + Jimbo);
+        </code></pre>
+        <p>Read more about variables <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var">here</a></p>
+    </article>
+
+    <!-- ARRAYS -->
+
+    <article id="arrays">
+        <h2>Arrays</h2>
+        <p>Arrays are lists of values. Javascript has a few tools for working with arrays.</p>
+        <pre><code class="language-js line-numbers">
+            var varietals = ["Chardonnay", "Merlot", "Pinot Noir", "Zinfandel"];
+
+            // Get an item in an array by it's index
+            console.log(varietals[2]); // Pinot Noir
+
+            // add another item to the array
+            varietals.push("Sauvignon Blanc");
+        </code></pre>
+        <p>It's common to use loops to access and manipulate arrays. <a href="#loops"> See loops</a></p>
+        <p>Read more about arrays <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">here</a></p>
+
+    </article>
+
+    <!-- OBJECTS -->
+
+    <article id="objects">
+        <h2>Objects</h2>
+        <p>Objects are a robust way to handle more complex data. Javascript has a bunch of tools to work with objects.</p>
+        <pre><code class="language-js line-numbers">
+            //This is an object, it goes in curly braces
+            // and consists of key/value pairs.
+            
+            var person = {
+                name: "Timmy", // "name" is the key and "Timmy" is the value
+                age: 100,
+                hairColor: "green",
+                "height (cm)": 100 
+            }
+
+
+        </code></pre>
+        <p>This is the common way to reference the data</p>
+        <pre><code class="language-js line-numbers">
+            console.log("Their name is " + person.name); // Their name is Timmy
+                         // the variable____|      |
+                       //   the key________________|
+        </code></pre>
+        <p>if the key contains spaces or special characters (-, (), etc.), then you have to put it in brackets and quotations instead.</p>
+        <pre><code class="language-js line-numbers">
+            console.log("They are " + person["height (cm)"] + " centimeters tall");
+        </code></pre>
+        <p>Read more about objects <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics">here</a></p>
+        
+    </article>
+    
+    <!-- FUNCTIONS -->
+    
+    <article id="functions">
+        <h2>Functions</h2>
+        <p>Functions are reusable blocks of code.</p>
+        <h3>Declaring a function</h3>
+        <p>There are a few ways to declare a function, but this is the most common.</p>
+        <pre><code class="language-js line-numbers">
+            function logToConsole(){
+                console.log("this is a function");
+            }
+        </code></pre>
+        <h3>Calling a function</h3>
+        <p>Once you have declared a function, you can make it execute like this:</p>
+        <pre><code class="language-js line-numbers">
+            logToConsole();
+            
+            // Output:
+            // this is a function
+        </code></pre>
+        <h3>Parameters and Arguments</h3>
+        <p>a parameter is like a special little variable just for the function. This function is going to get a parameter names "message".</p>
+        <pre><code class="language-js line-numbers">
+            function logToConsole(message){
+                console.log(message);
+            }
+        </code></pre>
+        <p>When the function is called, we can set the value of the parameter. That's called an argument.</p>
+        <pre><code class="language-js line-numbers">
+            logToConsole("I am passing this to the function");
+            
+            //Output:
+            // I am passing this to the function
+        </code></pre>
+        <p>Read more about functions <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions">here</a></p>
+    </article>
+    <!-- IF / ELSE -->
+    
+    <article id="if-else">
+        <h2>If / else</h2>
+        <p>"if" and "else" are conditional statements. They are used to create logic.</p>
+        <pre><code class="language-js line-numbers">
+            var today = "Friday";
+            
+            if (today === "Monday"){ // false, so it wont run this code
+                console.log("This day sucks");
+                }else if(today === "Friday"{ // true, so it will run this code
+                    console.log("This day rules");
+                }else{ // will run if nothing else did
+                    console.log("I wish it was Friday");
+                }
+            </code></pre>
+            <h3>Logical operators</h3>
+            <p>You can use "and" (&&), "or" (||) and "not" (!) to make more complex conditional statements</p>
+            <pre><code class="language-js line-numbers">
+                    if (!dogsBarking && mommaCooked && gotACall && !killedInSouthCentral){ 
+                        // will only run if all conditions are true
+                        console.log("it was a good day");
+                    }else if (lakers > superSonics || sheHadTheChronic){
+                        // will run if either conditions are true
+                        console.log("I got to say it was a good day");
+                    }
+            </code></pre>
+            <p>Read more about if/else statements <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else">here</a></p>
+        </article>
+
+    <!-- LOOPS -->
+        
+    <article id="loops">
+        <h2>Loops</h2>
+        <p>
+            Loops provide a way repeating code. Javascript offers a lot of different types of loops. These are the ones we have learned so far.
+        </p>
+        <h3>for loop</h3>
+        <p>this loop repeats until a specified condition is met.</p>
+        <pre><code class="language-js line-numbers">
+            for (var i = 0; i < 5; i++){
+                console.log("This will be logged 5 times");
+            }
+            // (var i = 0) i is set to 0 
+            // (i < 5) the loop is told to continue as long as i is less than 5 
+            // (i++) the loop is told to increment the value of i each time it runs 
+        </code></pre>
+
+        <h3>forEach loop</h3>
+        <p>This loop runs for each item in an array while passing the value (and, optionally, the index) of the array item.</p>
+        <pre><code class="language-js line-numbers">
+            var ingredients = ["mayo", "mustard", "pickles", "ham"];
+            
+            ingredients.forEach(function(ingredient, i){
+                console.log(i + ".) put the " + ingredient + " on the bread");
+            });
+            
+            // Output:
+            // 0.) put the mayo on the bread
+            // 1.) put the mustard on the bread
+            // 2.) put the pickles on the bread
+            // 3.) put the ham on the bread
+        </code></pre>
+        
+    <p>Read more about loops <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration">here</a></p>
+</article>
+
+    <!-- EVENTS -->
+        
+    <article id="events">
+        <h2>Events</h2>
+        <p>
+            Javascript can capture events like key presses and clicks.
+        </p>
+        <h3>onkeyup</h3>
+        <p>When a user presses (and releases) a key, this will be triggered.</p>
+        <pre><code class="language-js line-numbers">
+            document.onkeyup = function(event) {
+                // data about the event   |
+                // is passed here_________| 
+                console.log("You pressed " + event.key);
+                // and referenced here____________|
+            };
+        </code></pre>
+
+        <h3>onclick</h3>
+        <p>This is triggered whin a user clicks</p>
+        <pre><code class="language-js line-numbers">
+            document.onclick = function() {
+                console.log("You clicked");
+            };
+        </code></pre>
+        
+    <p>Read more about event handlers <a href="https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers">here</a></p>
+</article>
+
+<!-- SCOPE -->
+
+<article id="scope">
+    <h2>Scope</h2>
+    <h3>Scoped Variables</h3>
+    <p>Variables that are declared inside functions are only available inside that function.</p>
+    <pre><code class="language-js line-numbers">
+        function makeVariable(){
+            var x = 2;
+        }
+        
+        makeVariable();
+
+        console.log(x); // Can't do it.
+        </code></pre>
+        <h3>Global variables</h3>
+        <p>Global variables are defined outside of any functions, making them available... globally. They can still be changed inside a function, and the new value will be accessible anywhere.</p>
+        <pre><code class="language-js line-numbers">
+            var x = 2;
+            
+            function changeVariable(){
+                x = 10;
+            }
+            
+            changeVariable();
+            
+            console.log(x); // 10
+        </code></pre>
+        <p>Read more about scope <a href="https://developer.mozilla.org/en-US/docs/Glossary/Scope">here</a></p>
+    </article>
+    <!-- DOM MANIPULATION -->
+    
+    <article id="dom-manipulation">
+        <h2>DOM Manipulation</h2>
+        <p>This means changing things in the web page with JavaScript. There are a lot of ways to do it.</p>
+        <h3>Selecting elements</h3>
+        <p>If you want to change an element, you first need to select it. There are a bunch of ways to do that as well.</p>
+        <pre><code class="language-js line-numbers">
+            // Select by id
+            var story1 = document.getElementById("story-1");
+            // This will select that element and store is in the variable
+
+            // Select all elements with the class "story"
+            var stories = document.getElementsByClassName("story");
+            // This will return a list of matching elements (kind of like an array)
+
+            // The best way, select by whatever.
+            // It's little slower than the other two, 
+            // can only do like  7 million queries a second
+            var story1 = document.querySelector("#story-1"); // selects the first one it finds
+            var stories = document.querySelectorAll(".story"); // creates a list
+            var article = document.querySelectorAll("article"); // creates a list
+
+        </code></pre>
+            <h3>Changing elements</h3>
+            <p>Javascript can change just about anything about an element.</p>
+            <pre><code class="language-js line-numbers">
+                // change the text in an element
+                story1.textContent = "This is the new text"
+
+                // put html right in an element
+                story1.innerHTML = "&lt;h1>this is a new h1 tag&lt;/h1>"
+
+                // add a class to an element
+                story1.classList.add("new-class");
+
+                // add a style to an element
+                story1.style.background = "#f06d06";
+            </code></pre>
+            <p>Read more about manipulating the DOM <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents">here</a></p>
+        </article>
+</main>
+
+
+
+
+<script src="./assets/js/prism.js"></script>
+<script src="./assets/js/script.js"></script>
+</body>
+</html>
