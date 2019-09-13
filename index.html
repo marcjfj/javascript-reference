@@ -111,7 +111,7 @@
     
     <article id="functions">
         <h2>Functions</h2>
-        <p>Functions are reusable blocks of code.</p>
+        <p>Functions are reusable blocks of code that run when called.</p>
         <h3>Declaring a function</h3>
         <p>There are a few ways to declare a function, but this is the most common.</p>
         <pre><code class="language-js line-numbers">
@@ -285,12 +285,13 @@
             var stories = document.getElementsByClassName("story");
             // This will return a list of matching elements (kind of like an array)
 
-            // The best way, select by whatever.
-            // It's little slower than the other two, 
-            // can only do like  7 million queries a second
-            var story1 = document.querySelector("#story-1"); // selects the first one it finds
-            var stories = document.querySelectorAll(".story"); // creates a list
-            var article = document.querySelectorAll("article"); // creates a list
+            // querySelector can select by just about anything
+            var story1 = document.querySelector("#story-1"); 
+            // selects the first one it finds
+
+            // querySelectorAll returns a list of matches
+            var stories = document.querySelectorAll(".story"); // all of that class
+            var article = document.querySelectorAll("article"); // all article elements
 
         </code></pre>
             <h3>Changing elements</h3>
